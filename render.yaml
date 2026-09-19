@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: incidentcommander-demo
+    runtime: docker
+    plan: 1c-2g
+    numInstances: 1
+    autoDeployTrigger: "off"
+    healthCheckPath: /healthz
+    disk:
+      name: incidentcommander-runtime
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DEMO_AUTH_ENABLED
+        value: "true"
+      - key: DEMO_USERNAME
+        value: demo
+      - key: DEMO_PASSWORD
+        sync: false
+      - key: IC_DATA_DIR
+        value: /data
+      - key: PORT
+        value: "10000"

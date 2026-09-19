@@ -1,0 +1,23 @@
+# Explicit allowlist: development history, credentials and runtime never enter image.
+**
+!*.py
+!requirements-context.txt
+!package.json
+!package-lock.json
+!web/
+!web/**
+!converselab/
+!converselab/**
+!context_optimization/
+!context_optimization/**
+!deploy/
+!deploy/**
+**/__pycache__/
+**/*.pyc
+**/.env
+**/.env.*
+**/.git/
+**/*.pem
+**/*.key
+**/runtime/
+**/node_modules/

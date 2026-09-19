@@ -40,6 +40,11 @@ Windows: double-click `start.cmd`. Keep the launcher running. Ctrl+C stops its t
 - **ARCHITECTURE.md** — complete implementation architecture and Mermaid diagrams.
 - **WEBSITES.md** — the three websites, ports, routes, dependencies and behavior.
 - **JUDGE-QA.md** — technically accurate answers to common judge questions.
+- **VIDEO-DEMO-GUIDE.md** — exact five-minute recording timeline, clicks, narration, overlays and recovery.
+- **VIDEO-RECORDING-CHECKLIST.md** — printable capture checklist.
+- **VIDEO-VOICEOVER.md** — timed final narration.
+- **VIDEO-SHOTLIST.md** — raw clip plan and edited durations.
+- **VIDEO-FEATURE-MAP.md** — differentiator-to-implementation recording map.
 - **ONBOARDING.md** — application contract and how to connect a third app.
 - **MULTIAPP-REPORT.md** — current 20-part implementation/verification report and limits.
 - **ADAPTIVE-CONTEXT-REPORT.md** — Adaptive Context Intelligence implementation, benchmark, UI and runtime verification report.

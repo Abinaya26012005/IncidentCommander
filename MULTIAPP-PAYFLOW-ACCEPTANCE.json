@@ -1,0 +1,1306 @@
+{
+  "timestamp": 1789765508.290735,
+  "method": "Direct filesystem edit, no scenario/reset endpoint called",
+  "healthy_customer_transaction": "TXN-68992AA2",
+  "healthy_baseline": [
+    {
+      "timestamp": 1789765496.549163,
+      "trace_id": "4bfeb8ad8372",
+      "ok": true,
+      "error": null,
+      "latency": 231,
+      "spans": [
+        {
+          "service": "api-gateway",
+          "ms": 231,
+          "status": "ok"
+        },
+        {
+          "service": "order-service",
+          "ms": 102,
+          "status": "ok"
+        },
+        {
+          "service": "payment-service",
+          "ms": 109,
+          "status": "ok"
+        },
+        {
+          "service": "bank-api",
+          "ms": 107,
+          "status": "ok"
+        },
+        {
+          "service": "database",
+          "ms": 3,
+          "status": "ok"
+        }
+      ],
+      "sha": "6e11b0c",
+      "origin": "checkout"
+    }
+  ],
+  "original_source": "def process(pool, charge, save):\n    connection = pool.acquire()\n    try:\n        result = charge()\n        save(connection, result)\n        return result\n    finally:\n        pool.release(connection)\n",
+  "broken_source": "def process(pool, charge, save):\n    connection = pool.acquire()\n    result = charge()\n    save(connection, result)\n    return result\n",
+  "traffic": [
+    {
+      "ok": true,
+      "id": "TXN-F5476695",
+      "order_id": "ORD-10A127",
+      "latency": 141,
+      "trace_id": "2cd2763b2b62",
+      "amount": 3599
+    },
+    {
+      "ok": true,
+      "id": "TXN-622C43D8",
+      "order_id": "ORD-2EC758",
+      "latency": 121,
+      "trace_id": "73d5449b6695",
+      "amount": 3599
+    },
+    {
+      "ok": true,
+      "id": "TXN-4CA700CB",
+      "order_id": "ORD-D526C1",
+      "latency": 108,
+      "trace_id": "d876d61d5cd0",
+      "amount": 3599
+    },
+    {
+      "ok": true,
+      "id": "TXN-CD33C421",
+      "order_id": "ORD-06A39C",
+      "latency": 125,
+      "trace_id": "ea8dbc8d5250",
+      "amount": 3599
+    },
+    {
+      "ok": true,
+      "id": "TXN-4709BA8B",
+      "order_id": "ORD-7ED172",
+      "latency": 108,
+      "trace_id": "531a74beafc1",
+      "amount": 3599
+    },
+    {
+      "ok": true,
+      "id": "TXN-7CD4E49B",
+      "order_id": "ORD-BB0484",
+      "latency": 96,
+      "trace_id": "c8077296230d",
+      "amount": 3599
+    },
+    {
+      "ok": false,
+      "id": null,
+      "order_id": null,
+      "latency": 252,
+      "trace_id": "560b5c23af25",
+      "amount": 3599,
+      "_status": 503
+    },
+    {
+      "ok": false,
+      "id": null,
+      "order_id": null,
+      "latency": 229,
+      "trace_id": "105835b87c25",
+      "amount": 3599,
+      "_status": 503
+    },
+    {
+      "ok": false,
+      "id": null,
+      "order_id": null,
+      "latency": 231,
+      "trace_id": "559fcb4c0816",
+      "amount": 3599,
+      "_status": 503
+    }
+  ],
+  "before_approval": {
+    "id": "INC-8DB18E4A",
+    "application_id": "payflow",
+    "status": "awaiting_approval",
+    "failure_type": "UNKNOWN",
+    "severity": "SEV-2",
+    "affected_services": [
+      "payment-service"
+    ],
+    "created": 1789765507.9116466,
+    "onset": 1789765507.4818354,
+    "evidence": [
+      {
+        "id": "E-001",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "METRIC",
+        "source_name": "Metrics investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.9119642,
+        "summary": "22.2% of the last 9 payments failed. Pool utilization is 100%.",
+        "metadata": {
+          "requests": 9,
+          "total_requests": 9,
+          "failures": 2,
+          "error_rate": 22.2,
+          "p95": 252,
+          "pool": {
+            "used": 6,
+            "size": 6,
+            "utilization": 100
+          }
+        },
+        "raw_reference": "Metrics investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-002",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "LOG",
+        "source_name": "Logs investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.911972,
+        "summary": "4 correlated error records collected.",
+        "metadata": {
+          "records": [
+            {
+              "timestamp": 1789765507.481175,
+              "service": "payment-service",
+              "severity": "ERROR",
+              "trace_id": "560b5c23af25",
+              "code": "DB_POOL_EXHAUSTED",
+              "detail": {
+                "exception": "RuntimeError",
+                "message": "DB_POOL_EXHAUSTED",
+                "frames": [
+                  {
+                    "file": "payment_logic.py",
+                    "line": 2,
+                    "function": "process"
+                  }
+                ]
+              }
+            },
+            {
+              "timestamp": 1789765507.4818377,
+              "service": "api-gateway",
+              "severity": "ERROR",
+              "trace_id": "560b5c23af25",
+              "code": "DB_POOL_EXHAUSTED"
+            },
+            {
+              "timestamp": 1789765507.7134144,
+              "service": "payment-service",
+              "severity": "ERROR",
+              "trace_id": "105835b87c25",
+              "code": "DB_POOL_EXHAUSTED",
+              "detail": {
+                "exception": "RuntimeError",
+                "message": "DB_POOL_EXHAUSTED",
+                "frames": [
+                  {
+                    "file": "payment_logic.py",
+                    "line": 2,
+                    "function": "process"
+                  }
+                ]
+              }
+            },
+            {
+              "timestamp": 1789765507.7152362,
+              "service": "api-gateway",
+              "severity": "ERROR",
+              "trace_id": "105835b87c25",
+              "code": "DB_POOL_EXHAUSTED"
+            }
+          ]
+        },
+        "raw_reference": "Logs investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-003",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "TRACE",
+        "source_name": "Trace investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.9119768,
+        "summary": "Followed failed requests across the payment path.",
+        "metadata": {
+          "traces": [
+            {
+              "timestamp": 1789765507.4818354,
+              "trace_id": "560b5c23af25",
+              "ok": false,
+              "error": "DB_POOL_EXHAUSTED",
+              "latency": 252,
+              "spans": [
+                {
+                  "service": "api-gateway",
+                  "ms": 252,
+                  "status": "error"
+                },
+                {
+                  "service": "order-service",
+                  "ms": 2,
+                  "status": "ok"
+                },
+                {
+                  "service": "payment-service",
+                  "ms": 236,
+                  "status": "error"
+                },
+                {
+                  "service": "database-pool",
+                  "ms": 236,
+                  "status": "error"
+                }
+              ],
+              "sha": "6e11b0c",
+              "origin": "manual"
+            },
+            {
+              "timestamp": 1789765507.7152293,
+              "trace_id": "105835b87c25",
+              "ok": false,
+              "error": "DB_POOL_EXHAUSTED",
+              "latency": 229,
+              "spans": [
+                {
+                  "service": "api-gateway",
+                  "ms": 229,
+                  "status": "error"
+                },
+                {
+                  "service": "order-service",
+                  "ms": 1,
+                  "status": "ok"
+                },
+                {
+                  "service": "payment-service",
+                  "ms": 227,
+                  "status": "error"
+                },
+                {
+                  "service": "database-pool",
+                  "ms": 226,
+                  "status": "error"
+                }
+              ],
+              "sha": "6e11b0c",
+              "origin": "manual"
+            }
+          ]
+        },
+        "raw_reference": "Trace investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-004",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "GIT",
+        "source_name": "Local Git investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.9119828,
+        "summary": "Inspected the actual deployed payment source and commit diff.",
+        "metadata": {
+          "diff": "diff --git a/config.json b/config.json\nindex adccced..751d4c3 100644\n--- a/config.json\n+++ b/config.json\n@@ -1,4 +1,11 @@\n {\n   \"bank_timeout_ms\": 800,\n-  \"bank_available\": true\n+  \"bank_available\": true,\n+  \"bank_latency_ms\": 90,\n+  \"database_available\": true,\n+  \"order_available\": true,\n+  \"bank_path\": \"/charge\",\n+  \"gateway_path\": \"/pay\",\n+  \"pool_size\": 6,\n+  \"processing_delay_ms\": 0\n }\ndiff --git a/payment_logic.py b/payment_logic.py\nindex 01e29f1..0be4a1e 100644\n--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,8 +1,5 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    try:\n-        result = charge()\n-        save(connection, result)\n-        return result\n-    finally:\n-        pool.release(connection)\n+    result = charge()\n+    save(connection, result)\n+    return result",
+          "source": "def process(pool, charge, save):\n    connection = pool.acquire()\n    result = charge()\n    save(connection, result)\n    return result\n",
+          "sha": "6e11b0c",
+          "local": {
+            "detected_at": 1789765506.158257,
+            "changed_files": [
+              "payment_logic.py"
+            ],
+            "hashes": {
+              "payment_logic.py": "b82a156fcebd5cba4fa0b423335b0eceb164105b2672305d0e5785711325939b",
+              "config.json": "6ec5b24a13c976886cd0d8d732eaa90dbbfeee5d56241b00d1a8c742c185c871"
+            },
+            "files": {
+              "payment_logic.py": "def process(pool, charge, save):\n    connection = pool.acquire()\n    result = charge()\n    save(connection, result)\n    return result\n",
+              "config.json": "{\n  \"bank_timeout_ms\": 800,\n  \"bank_available\": true,\n  \"bank_latency_ms\": 90,\n  \"database_available\": true,\n  \"order_available\": true,\n  \"bank_path\": \"/charge\",\n  \"gateway_path\": \"/pay\",\n  \"pool_size\": 6,\n  \"processing_delay_ms\": 0\n}\n"
+            },
+            "timestamps": {
+              "payment_logic.py": 1789765505.726236,
+              "config.json": 1789748245.665869
+            },
+            "working_diff": "diff --git a/config.json b/config.json\nindex adccced..751d4c3 100644\n--- a/config.json\n+++ b/config.json\n@@ -1,4 +1,11 @@\n {\n   \"bank_timeout_ms\": 800,\n-  \"bank_available\": true\n+  \"bank_available\": true,\n+  \"bank_latency_ms\": 90,\n+  \"database_available\": true,\n+  \"order_available\": true,\n+  \"bank_path\": \"/charge\",\n+  \"gateway_path\": \"/pay\",\n+  \"pool_size\": 6,\n+  \"processing_delay_ms\": 0\n }\ndiff --git a/payment_logic.py b/payment_logic.py\nindex 01e29f1..0be4a1e 100644\n--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,8 +1,5 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    try:\n-        result = charge()\n-        save(connection, result)\n-        return result\n-    finally:\n-        pool.release(connection)\n+    result = charge()\n+    save(connection, result)\n+    return result",
+            "status": "M config.json\n M payment_logic.py",
+            "commit_diff": "commit 6e11b0c066a59e04fed1c219e5ce96d1197dafbf\nAuthor:     PayFlow Demo <demo@localhost>\nAuthorDate: Fri Sep 18 19:20:06 2026 +0530\nCommit:     PayFlow Demo <demo@localhost>\nCommitDate: Fri Sep 18 19:20:06 2026 +0530\n\n    Restore connection cleanup\n\ndiff --git a/payment_logic.py b/payment_logic.py\nindex 0be4a1e..01e29f1 100644\n--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,5 +1,8 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    result = charge()\n-    save(connection, result)\n-    return result\n+    try:\n+        result = charge()\n+        save(connection, result)\n+        return result\n+    finally:\n+        pool.release(connection)",
+            "recent_commits": "6e11b0c 1789739406 Restore connection cleanup\nd4b6ffa 1789739323 Refactor payment completion flow\n4b672be 1789737787 Restore connection cleanup\nbb8a875 1789737698 Refactor payment completion flow\na93eecd 1789737332 Restore sandbox bank availability",
+            "sha": "6e11b0c"
+          },
+          "reload_error": null
+        },
+        "raw_reference": "Local Git investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-005",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "DEPLOYMENT",
+        "source_name": "Deployment investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.9119859,
+        "summary": "Release v2.1 deployed at commit 6e11b0c.",
+        "metadata": {
+          "sha": "6e11b0c",
+          "timestamp": 1789765506.3565245,
+          "message": "Local source reload",
+          "version": "v2.1",
+          "hashes": {
+            "payment_logic.py": "b82a156fcebd5cba4fa0b423335b0eceb164105b2672305d0e5785711325939b",
+            "config.json": "6ec5b24a13c976886cd0d8d732eaa90dbbfeee5d56241b00d1a8c742c185c871"
+          },
+          "reload_error": null,
+          "changed_files": [
+            "payment_logic.py"
+          ]
+        },
+        "raw_reference": "Deployment investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-006",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "DEPENDENCY",
+        "source_name": "Dependency investigator",
+        "service": "bank-api",
+        "timestamp": 1789765508.029007,
+        "summary": "Sandbox bank health: healthy.",
+        "metadata": {
+          "healthy": true,
+          "service": "bank-api",
+          "simulator": true,
+          "latency_ms": 90,
+          "payment_healthy": false,
+          "order_healthy": true
+        },
+        "raw_reference": "Dependency investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-007",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "DATABASE",
+        "source_name": "Database investigator",
+        "service": "database",
+        "timestamp": 1789765508.029016,
+        "summary": "Independent database probe: healthy.",
+        "metadata": {
+          "healthy": true,
+          "engine": "SQLite",
+          "pool": {
+            "used": 6,
+            "size": 6,
+            "utilization": 100
+          }
+        },
+        "raw_reference": "Database investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-008",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "CONFIG",
+        "source_name": "Configuration investigator",
+        "service": "payment-service",
+        "timestamp": 1789765508.0290198,
+        "summary": "Bank request timeout is 800 ms.",
+        "metadata": {
+          "bank_timeout_ms": 800,
+          "bank_available": true,
+          "bank_latency_ms": 90,
+          "database_available": true,
+          "order_available": true,
+          "bank_path": "/charge",
+          "gateway_path": "/pay",
+          "pool_size": 6,
+          "processing_delay_ms": 0
+        },
+        "raw_reference": "Configuration investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-009",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "RUNBOOK",
+        "source_name": "Knowledge retriever",
+        "service": "payment-service",
+        "timestamp": 1789765508.029092,
+        "summary": "Matched RB-001: Connection pool exhaustion.",
+        "metadata": {
+          "id": "RB-001",
+          "title": "Connection pool exhaustion",
+          "terms": [
+            "DB_POOL_EXHAUSTED",
+            "pool",
+            "cleanup"
+          ],
+          "steps": [
+            "Compare pool saturation with database health.",
+            "Inspect connection ownership in the deployed source.",
+            "Restore cleanup, recycle the sandbox pool, and run fresh transactions."
+          ],
+          "matched": true
+        },
+        "raw_reference": "Knowledge retriever snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-010",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "HISTORY",
+        "source_name": "Incident memory",
+        "service": "payment-service",
+        "timestamp": 1789765508.0291252,
+        "summary": "8 matching completed sandbox incidents found.",
+        "metadata": {
+          "matches": [
+            {
+              "id": "INC-7704383",
+              "title": "Unreleased connections exhausted the payment pool",
+              "status": "resolved"
+            },
+            {
+              "id": "INC-9329205",
+              "title": "Unreleased connections exhausted the payment pool",
+              "status": "resolved"
+            },
+            {
+              "id": "INC-8804101",
+              "title": "Unreleased connections exhausted the payment pool",
+              "status": "resolved"
+            }
+          ]
+        },
+        "raw_reference": "Incident memory snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      }
+    ],
+    "timeline": [
+      {
+        "timestamp": 1789765507.9116507,
+        "text": "Runtime degradation detected from live requests.",
+        "kind": "alert"
+      },
+      {
+        "timestamp": 1789765507.9119253,
+        "text": "Starting from UNKNOWN. Inspecting measured runtime signals and changes, without a fault label.",
+        "kind": "info"
+      },
+      {
+        "timestamp": 1789765508.0291436,
+        "text": "22.2% of the last 9 payments failed. Pool utilization is 100%.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291445,
+        "text": "4 correlated error records collected.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.029145,
+        "text": "Followed failed requests across the payment path.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291457,
+        "text": "Inspected the actual deployed payment source and commit diff.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.029146,
+        "text": "Release v2.1 deployed at commit 6e11b0c.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291464,
+        "text": "Sandbox bank health: healthy.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291467,
+        "text": "Independent database probe: healthy.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291471,
+        "text": "Bank request timeout is 800 ms.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291474,
+        "text": "Matched RB-001: Connection pool exhaustion.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291476,
+        "text": "8 matching completed sandbox incidents found.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.182754,
+        "text": "Evidence correlation complete. Review the validated patch before approval.",
+        "kind": "info"
+      }
+    ],
+    "rca": {
+      "title": "Unreleased connections exhausted the payment pool",
+      "explanation": "Failed requests stop at connection acquisition. The database is healthy, but the deployed source no longer returns acquired connections to the pool.",
+      "confidence": 95,
+      "confidence_label": "Python evidence score; not a probability",
+      "confidence_factors": [
+        {
+          "factor": "Direct error observations",
+          "weight": 20,
+          "evidence": "E-002"
+        },
+        {
+          "factor": "Request trace localization",
+          "weight": 20,
+          "evidence": "E-003"
+        },
+        {
+          "factor": "Measured request degradation",
+          "weight": 15,
+          "evidence": "E-001"
+        },
+        {
+          "factor": "Independent dependency probes",
+          "weight": 15,
+          "evidence": "E-006"
+        },
+        {
+          "factor": "Source or configuration change available",
+          "weight": 10,
+          "evidence": "E-004"
+        },
+        {
+          "factor": "Reload preceded observed impact",
+          "weight": 10,
+          "evidence": "E-005"
+        },
+        {
+          "factor": "Relevant runbook match",
+          "weight": 5,
+          "evidence": "E-009"
+        }
+      ],
+      "citations": [
+        "E-002",
+        "E-003",
+        "E-001",
+        "E-006",
+        "E-004",
+        "E-005",
+        "E-009"
+      ],
+      "action": "restore_cleanup",
+      "alternatives": [
+        {
+          "title": "Bank outage",
+          "reason": "An independent bank probe succeeded. Latency is assessed separately.",
+          "evidence": "E-006"
+        },
+        {
+          "title": "Database server outage",
+          "reason": "An independent database health probe succeeded. Pool capacity is assessed separately.",
+          "evidence": "E-007"
+        }
+      ],
+      "affected_component": "payment-service",
+      "affected_capabilities": [],
+      "status": "SUPPORTED",
+      "requires_more_evidence": false,
+      "engine": "Offline evidence engine",
+      "ai_status": "NOT_CONFIGURED"
+    },
+    "plan": {
+      "action": "restore_cleanup",
+      "edits": [
+        {
+          "path": "payment_logic.py",
+          "original_hash": "b82a156fcebd5cba4fa0b423335b0eceb164105b2672305d0e5785711325939b",
+          "content": "def process(pool, charge, save):\n    connection = pool.acquire()\n    try:\n        result = charge()\n        save(connection, result)\n        return result\n    finally:\n        pool.release(connection)\n"
+        }
+      ],
+      "title": "Restore connection cleanup",
+      "origin": "Evidence-driven restricted repair",
+      "id": "80e51bf3ae10407db4b586a8ee25c722",
+      "application_id": "payflow",
+      "validation": {
+        "checks": [
+          "Restricted paths; no secret files",
+          "Syntax valid",
+          "Restricted AST: no imports, shell, filesystem, loops or indirect calls",
+          "Success + exception cleanup tests passed"
+        ],
+        "diff": "--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,5 +1,8 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    result = charge()\n-    save(connection, result)\n-    return result\n+    try:\n+        result = charge()\n+        save(connection, result)\n+        return result\n+    finally:\n+        pool.release(connection)\n",
+        "originals": {
+          "payment_logic.py": "def process(pool, charge, save):\n    connection = pool.acquire()\n    result = charge()\n    save(connection, result)\n    return result\n"
+        },
+        "passed": true
+      },
+      "diff": "--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,5 +1,8 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    result = charge()\n-    save(connection, result)\n-    return result\n+    try:\n+        result = charge()\n+        save(connection, result)\n+        return result\n+    finally:\n+        pool.release(connection)\n",
+      "risk": "MEDIUM",
+      "expected_sha": "6e11b0c",
+      "expected_hashes": {
+        "payment_logic.py": "b82a156fcebd5cba4fa0b423335b0eceb164105b2672305d0e5785711325939b",
+        "config.json": "6ec5b24a13c976886cd0d8d732eaa90dbbfeee5d56241b00d1a8c742c185c871"
+      },
+      "policy": "Human approval required. Only registered file capabilities may change. Exact application, plan, revision and content hashes must match. No shell or data deletion.",
+      "impact": "Restricted to PayFlow: payment_logic.py",
+      "rollback": "Restore audited original content only if no newer source edit exists. This can restore the fault.",
+      "verification": "18 fresh checkout requests in two batches; zero failures, p95 below 500 ms, pool below 80%, and healthy database/bank."
+    },
+    "verification": null,
+    "affected_capabilities": [],
+    "error_codes": [
+      "DB_POOL_EXHAUSTED"
+    ]
+  },
+  "proposal_did_not_modify_source": true,
+  "after_approval": {
+    "id": "INC-8DB18E4A",
+    "application_id": "payflow",
+    "status": "resolved",
+    "failure_type": "UNKNOWN",
+    "severity": "SEV-2",
+    "affected_services": [
+      "payment-service"
+    ],
+    "created": 1789765507.9116466,
+    "onset": 1789765507.4818354,
+    "evidence": [
+      {
+        "id": "E-001",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "METRIC",
+        "source_name": "Metrics investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.9119642,
+        "summary": "22.2% of the last 9 payments failed. Pool utilization is 100%.",
+        "metadata": {
+          "requests": 9,
+          "total_requests": 9,
+          "failures": 2,
+          "error_rate": 22.2,
+          "p95": 252,
+          "pool": {
+            "used": 6,
+            "size": 6,
+            "utilization": 100
+          }
+        },
+        "raw_reference": "Metrics investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-002",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "LOG",
+        "source_name": "Logs investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.911972,
+        "summary": "4 correlated error records collected.",
+        "metadata": {
+          "records": [
+            {
+              "timestamp": 1789765507.481175,
+              "service": "payment-service",
+              "severity": "ERROR",
+              "trace_id": "560b5c23af25",
+              "code": "DB_POOL_EXHAUSTED",
+              "detail": {
+                "exception": "RuntimeError",
+                "message": "DB_POOL_EXHAUSTED",
+                "frames": [
+                  {
+                    "file": "payment_logic.py",
+                    "line": 2,
+                    "function": "process"
+                  }
+                ]
+              }
+            },
+            {
+              "timestamp": 1789765507.4818377,
+              "service": "api-gateway",
+              "severity": "ERROR",
+              "trace_id": "560b5c23af25",
+              "code": "DB_POOL_EXHAUSTED"
+            },
+            {
+              "timestamp": 1789765507.7134144,
+              "service": "payment-service",
+              "severity": "ERROR",
+              "trace_id": "105835b87c25",
+              "code": "DB_POOL_EXHAUSTED",
+              "detail": {
+                "exception": "RuntimeError",
+                "message": "DB_POOL_EXHAUSTED",
+                "frames": [
+                  {
+                    "file": "payment_logic.py",
+                    "line": 2,
+                    "function": "process"
+                  }
+                ]
+              }
+            },
+            {
+              "timestamp": 1789765507.7152362,
+              "service": "api-gateway",
+              "severity": "ERROR",
+              "trace_id": "105835b87c25",
+              "code": "DB_POOL_EXHAUSTED"
+            }
+          ]
+        },
+        "raw_reference": "Logs investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-003",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "TRACE",
+        "source_name": "Trace investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.9119768,
+        "summary": "Followed failed requests across the payment path.",
+        "metadata": {
+          "traces": [
+            {
+              "timestamp": 1789765507.4818354,
+              "trace_id": "560b5c23af25",
+              "ok": false,
+              "error": "DB_POOL_EXHAUSTED",
+              "latency": 252,
+              "spans": [
+                {
+                  "service": "api-gateway",
+                  "ms": 252,
+                  "status": "error"
+                },
+                {
+                  "service": "order-service",
+                  "ms": 2,
+                  "status": "ok"
+                },
+                {
+                  "service": "payment-service",
+                  "ms": 236,
+                  "status": "error"
+                },
+                {
+                  "service": "database-pool",
+                  "ms": 236,
+                  "status": "error"
+                }
+              ],
+              "sha": "6e11b0c",
+              "origin": "manual"
+            },
+            {
+              "timestamp": 1789765507.7152293,
+              "trace_id": "105835b87c25",
+              "ok": false,
+              "error": "DB_POOL_EXHAUSTED",
+              "latency": 229,
+              "spans": [
+                {
+                  "service": "api-gateway",
+                  "ms": 229,
+                  "status": "error"
+                },
+                {
+                  "service": "order-service",
+                  "ms": 1,
+                  "status": "ok"
+                },
+                {
+                  "service": "payment-service",
+                  "ms": 227,
+                  "status": "error"
+                },
+                {
+                  "service": "database-pool",
+                  "ms": 226,
+                  "status": "error"
+                }
+              ],
+              "sha": "6e11b0c",
+              "origin": "manual"
+            }
+          ]
+        },
+        "raw_reference": "Trace investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-004",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "GIT",
+        "source_name": "Local Git investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.9119828,
+        "summary": "Inspected the actual deployed payment source and commit diff.",
+        "metadata": {
+          "diff": "diff --git a/config.json b/config.json\nindex adccced..751d4c3 100644\n--- a/config.json\n+++ b/config.json\n@@ -1,4 +1,11 @@\n {\n   \"bank_timeout_ms\": 800,\n-  \"bank_available\": true\n+  \"bank_available\": true,\n+  \"bank_latency_ms\": 90,\n+  \"database_available\": true,\n+  \"order_available\": true,\n+  \"bank_path\": \"/charge\",\n+  \"gateway_path\": \"/pay\",\n+  \"pool_size\": 6,\n+  \"processing_delay_ms\": 0\n }\ndiff --git a/payment_logic.py b/payment_logic.py\nindex 01e29f1..0be4a1e 100644\n--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,8 +1,5 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    try:\n-        result = charge()\n-        save(connection, result)\n-        return result\n-    finally:\n-        pool.release(connection)\n+    result = charge()\n+    save(connection, result)\n+    return result",
+          "source": "def process(pool, charge, save):\n    connection = pool.acquire()\n    result = charge()\n    save(connection, result)\n    return result\n",
+          "sha": "6e11b0c",
+          "local": {
+            "detected_at": 1789765506.158257,
+            "changed_files": [
+              "payment_logic.py"
+            ],
+            "hashes": {
+              "payment_logic.py": "b82a156fcebd5cba4fa0b423335b0eceb164105b2672305d0e5785711325939b",
+              "config.json": "6ec5b24a13c976886cd0d8d732eaa90dbbfeee5d56241b00d1a8c742c185c871"
+            },
+            "files": {
+              "payment_logic.py": "def process(pool, charge, save):\n    connection = pool.acquire()\n    result = charge()\n    save(connection, result)\n    return result\n",
+              "config.json": "{\n  \"bank_timeout_ms\": 800,\n  \"bank_available\": true,\n  \"bank_latency_ms\": 90,\n  \"database_available\": true,\n  \"order_available\": true,\n  \"bank_path\": \"/charge\",\n  \"gateway_path\": \"/pay\",\n  \"pool_size\": 6,\n  \"processing_delay_ms\": 0\n}\n"
+            },
+            "timestamps": {
+              "payment_logic.py": 1789765505.726236,
+              "config.json": 1789748245.665869
+            },
+            "working_diff": "diff --git a/config.json b/config.json\nindex adccced..751d4c3 100644\n--- a/config.json\n+++ b/config.json\n@@ -1,4 +1,11 @@\n {\n   \"bank_timeout_ms\": 800,\n-  \"bank_available\": true\n+  \"bank_available\": true,\n+  \"bank_latency_ms\": 90,\n+  \"database_available\": true,\n+  \"order_available\": true,\n+  \"bank_path\": \"/charge\",\n+  \"gateway_path\": \"/pay\",\n+  \"pool_size\": 6,\n+  \"processing_delay_ms\": 0\n }\ndiff --git a/payment_logic.py b/payment_logic.py\nindex 01e29f1..0be4a1e 100644\n--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,8 +1,5 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    try:\n-        result = charge()\n-        save(connection, result)\n-        return result\n-    finally:\n-        pool.release(connection)\n+    result = charge()\n+    save(connection, result)\n+    return result",
+            "status": "M config.json\n M payment_logic.py",
+            "commit_diff": "commit 6e11b0c066a59e04fed1c219e5ce96d1197dafbf\nAuthor:     PayFlow Demo <demo@localhost>\nAuthorDate: Fri Sep 18 19:20:06 2026 +0530\nCommit:     PayFlow Demo <demo@localhost>\nCommitDate: Fri Sep 18 19:20:06 2026 +0530\n\n    Restore connection cleanup\n\ndiff --git a/payment_logic.py b/payment_logic.py\nindex 0be4a1e..01e29f1 100644\n--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,5 +1,8 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    result = charge()\n-    save(connection, result)\n-    return result\n+    try:\n+        result = charge()\n+        save(connection, result)\n+        return result\n+    finally:\n+        pool.release(connection)",
+            "recent_commits": "6e11b0c 1789739406 Restore connection cleanup\nd4b6ffa 1789739323 Refactor payment completion flow\n4b672be 1789737787 Restore connection cleanup\nbb8a875 1789737698 Refactor payment completion flow\na93eecd 1789737332 Restore sandbox bank availability",
+            "sha": "6e11b0c"
+          },
+          "reload_error": null
+        },
+        "raw_reference": "Local Git investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-005",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "DEPLOYMENT",
+        "source_name": "Deployment investigator",
+        "service": "payment-service",
+        "timestamp": 1789765507.9119859,
+        "summary": "Release v2.1 deployed at commit 6e11b0c.",
+        "metadata": {
+          "sha": "6e11b0c",
+          "timestamp": 1789765506.3565245,
+          "message": "Local source reload",
+          "version": "v2.1",
+          "hashes": {
+            "payment_logic.py": "b82a156fcebd5cba4fa0b423335b0eceb164105b2672305d0e5785711325939b",
+            "config.json": "6ec5b24a13c976886cd0d8d732eaa90dbbfeee5d56241b00d1a8c742c185c871"
+          },
+          "reload_error": null,
+          "changed_files": [
+            "payment_logic.py"
+          ]
+        },
+        "raw_reference": "Deployment investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-006",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "DEPENDENCY",
+        "source_name": "Dependency investigator",
+        "service": "bank-api",
+        "timestamp": 1789765508.029007,
+        "summary": "Sandbox bank health: healthy.",
+        "metadata": {
+          "healthy": true,
+          "service": "bank-api",
+          "simulator": true,
+          "latency_ms": 90,
+          "payment_healthy": false,
+          "order_healthy": true
+        },
+        "raw_reference": "Dependency investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-007",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "DATABASE",
+        "source_name": "Database investigator",
+        "service": "database",
+        "timestamp": 1789765508.029016,
+        "summary": "Independent database probe: healthy.",
+        "metadata": {
+          "healthy": true,
+          "engine": "SQLite",
+          "pool": {
+            "used": 6,
+            "size": 6,
+            "utilization": 100
+          }
+        },
+        "raw_reference": "Database investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-008",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "CONFIG",
+        "source_name": "Configuration investigator",
+        "service": "payment-service",
+        "timestamp": 1789765508.0290198,
+        "summary": "Bank request timeout is 800 ms.",
+        "metadata": {
+          "bank_timeout_ms": 800,
+          "bank_available": true,
+          "bank_latency_ms": 90,
+          "database_available": true,
+          "order_available": true,
+          "bank_path": "/charge",
+          "gateway_path": "/pay",
+          "pool_size": 6,
+          "processing_delay_ms": 0
+        },
+        "raw_reference": "Configuration investigator snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-009",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "RUNBOOK",
+        "source_name": "Knowledge retriever",
+        "service": "payment-service",
+        "timestamp": 1789765508.029092,
+        "summary": "Matched RB-001: Connection pool exhaustion.",
+        "metadata": {
+          "id": "RB-001",
+          "title": "Connection pool exhaustion",
+          "terms": [
+            "DB_POOL_EXHAUSTED",
+            "pool",
+            "cleanup"
+          ],
+          "steps": [
+            "Compare pool saturation with database health.",
+            "Inspect connection ownership in the deployed source.",
+            "Restore cleanup, recycle the sandbox pool, and run fresh transactions."
+          ],
+          "matched": true
+        },
+        "raw_reference": "Knowledge retriever snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      },
+      {
+        "id": "E-010",
+        "incident_id": "INC-8DB18E4A",
+        "source_type": "HISTORY",
+        "source_name": "Incident memory",
+        "service": "payment-service",
+        "timestamp": 1789765508.0291252,
+        "summary": "8 matching completed sandbox incidents found.",
+        "metadata": {
+          "matches": [
+            {
+              "id": "INC-7704383",
+              "title": "Unreleased connections exhausted the payment pool",
+              "status": "resolved"
+            },
+            {
+              "id": "INC-9329205",
+              "title": "Unreleased connections exhausted the payment pool",
+              "status": "resolved"
+            },
+            {
+              "id": "INC-8804101",
+              "title": "Unreleased connections exhausted the payment pool",
+              "status": "resolved"
+            }
+          ]
+        },
+        "raw_reference": "Incident memory snapshot at 1789765507.8998127",
+        "relevance": "supporting",
+        "application_id": "payflow"
+      }
+    ],
+    "timeline": [
+      {
+        "timestamp": 1789765507.9116507,
+        "text": "Runtime degradation detected from live requests.",
+        "kind": "alert"
+      },
+      {
+        "timestamp": 1789765507.9119253,
+        "text": "Starting from UNKNOWN. Inspecting measured runtime signals and changes, without a fault label.",
+        "kind": "info"
+      },
+      {
+        "timestamp": 1789765508.0291436,
+        "text": "22.2% of the last 9 payments failed. Pool utilization is 100%.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291445,
+        "text": "4 correlated error records collected.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.029145,
+        "text": "Followed failed requests across the payment path.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291457,
+        "text": "Inspected the actual deployed payment source and commit diff.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.029146,
+        "text": "Release v2.1 deployed at commit 6e11b0c.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291464,
+        "text": "Sandbox bank health: healthy.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291467,
+        "text": "Independent database probe: healthy.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291471,
+        "text": "Bank request timeout is 800 ms.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291474,
+        "text": "Matched RB-001: Connection pool exhaustion.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.0291476,
+        "text": "8 matching completed sandbox incidents found.",
+        "kind": "evidence"
+      },
+      {
+        "timestamp": 1789765508.182754,
+        "text": "Evidence correlation complete. Review the validated patch before approval.",
+        "kind": "info"
+      },
+      {
+        "timestamp": 1789765531.1657395,
+        "text": "Human approval recorded for plan 80e51bf3.",
+        "kind": "approval"
+      },
+      {
+        "timestamp": 1789765531.6149416,
+        "text": "Approved patch applied. Running fresh application-specific verification.",
+        "kind": "action"
+      },
+      {
+        "timestamp": 1789765533.1200542,
+        "text": "Fresh verification batch: 12/12 payments succeeded.",
+        "kind": "verification"
+      },
+      {
+        "timestamp": 1789765535.8722053,
+        "text": "Fresh verification batch: 6/6 payments succeeded.",
+        "kind": "verification"
+      },
+      {
+        "timestamp": 1789765535.9001353,
+        "text": "Recovery verified using fresh requests and independent health probes.",
+        "kind": "success"
+      }
+    ],
+    "rca": {
+      "title": "Unreleased connections exhausted the payment pool",
+      "explanation": "Failed requests stop at connection acquisition. The database is healthy, but the deployed source no longer returns acquired connections to the pool.",
+      "confidence": 95,
+      "confidence_label": "Python evidence score; not a probability",
+      "confidence_factors": [
+        {
+          "factor": "Direct error observations",
+          "weight": 20,
+          "evidence": "E-002"
+        },
+        {
+          "factor": "Request trace localization",
+          "weight": 20,
+          "evidence": "E-003"
+        },
+        {
+          "factor": "Measured request degradation",
+          "weight": 15,
+          "evidence": "E-001"
+        },
+        {
+          "factor": "Independent dependency probes",
+          "weight": 15,
+          "evidence": "E-006"
+        },
+        {
+          "factor": "Source or configuration change available",
+          "weight": 10,
+          "evidence": "E-004"
+        },
+        {
+          "factor": "Reload preceded observed impact",
+          "weight": 10,
+          "evidence": "E-005"
+        },
+        {
+          "factor": "Relevant runbook match",
+          "weight": 5,
+          "evidence": "E-009"
+        }
+      ],
+      "citations": [
+        "E-002",
+        "E-003",
+        "E-001",
+        "E-006",
+        "E-004",
+        "E-005",
+        "E-009"
+      ],
+      "action": "restore_cleanup",
+      "alternatives": [
+        {
+          "title": "Bank outage",
+          "reason": "An independent bank probe succeeded. Latency is assessed separately.",
+          "evidence": "E-006"
+        },
+        {
+          "title": "Database server outage",
+          "reason": "An independent database health probe succeeded. Pool capacity is assessed separately.",
+          "evidence": "E-007"
+        }
+      ],
+      "affected_component": "payment-service",
+      "affected_capabilities": [],
+      "status": "SUPPORTED",
+      "requires_more_evidence": false,
+      "engine": "Offline evidence engine",
+      "ai_status": "NOT_CONFIGURED"
+    },
+    "plan": {
+      "action": "restore_cleanup",
+      "edits": [
+        {
+          "path": "payment_logic.py",
+          "original_hash": "b82a156fcebd5cba4fa0b423335b0eceb164105b2672305d0e5785711325939b",
+          "content": "def process(pool, charge, save):\n    connection = pool.acquire()\n    try:\n        result = charge()\n        save(connection, result)\n        return result\n    finally:\n        pool.release(connection)\n"
+        }
+      ],
+      "title": "Restore connection cleanup",
+      "origin": "Evidence-driven restricted repair",
+      "id": "80e51bf3ae10407db4b586a8ee25c722",
+      "application_id": "payflow",
+      "validation": {
+        "checks": [
+          "Restricted paths; no secret files",
+          "Syntax valid",
+          "Restricted AST: no imports, shell, filesystem, loops or indirect calls",
+          "Success + exception cleanup tests passed"
+        ],
+        "diff": "--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,5 +1,8 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    result = charge()\n-    save(connection, result)\n-    return result\n+    try:\n+        result = charge()\n+        save(connection, result)\n+        return result\n+    finally:\n+        pool.release(connection)\n",
+        "originals": {
+          "payment_logic.py": "def process(pool, charge, save):\n    connection = pool.acquire()\n    result = charge()\n    save(connection, result)\n    return result\n"
+        },
+        "passed": true
+      },
+      "diff": "--- a/payment_logic.py\n+++ b/payment_logic.py\n@@ -1,5 +1,8 @@\n def process(pool, charge, save):\n     connection = pool.acquire()\n-    result = charge()\n-    save(connection, result)\n-    return result\n+    try:\n+        result = charge()\n+        save(connection, result)\n+        return result\n+    finally:\n+        pool.release(connection)\n",
+      "risk": "MEDIUM",
+      "expected_sha": "6e11b0c",
+      "expected_hashes": {
+        "payment_logic.py": "b82a156fcebd5cba4fa0b423335b0eceb164105b2672305d0e5785711325939b",
+        "config.json": "6ec5b24a13c976886cd0d8d732eaa90dbbfeee5d56241b00d1a8c742c185c871"
+      },
+      "policy": "Human approval required. Only registered file capabilities may change. Exact application, plan, revision and content hashes must match. No shell or data deletion.",
+      "impact": "Restricted to PayFlow: payment_logic.py",
+      "rollback": "Restore audited original content only if no newer source edit exists. This can restore the fault.",
+      "verification": "18 fresh checkout requests in two batches; zero failures, p95 below 500 ms, pool below 80%, and healthy database/bank."
+    },
+    "verification": {
+      "timestamp": 1789765535.900078,
+      "checks": [
+        {
+          "label": "Fresh payments",
+          "value": "18/18 successful",
+          "pass": true
+        },
+        {
+          "label": "Payment p95",
+          "value": "151 ms / <500 ms",
+          "pass": true
+        },
+        {
+          "label": "Connection pool",
+          "value": "0% / <80%",
+          "pass": true
+        },
+        {
+          "label": "Dependency probes",
+          "value": "Database + sandbox bank",
+          "pass": true
+        }
+      ],
+      "traces": [
+        "ae41e81983c9",
+        "28064310091b",
+        "23fea42d569c",
+        "8bb7bb4d1a30",
+        "16e9cd6adfda",
+        "bb0bd0fbf4b3",
+        "7d3fb62d32f0",
+        "bb64396a82ad",
+        "45d1cac7b512",
+        "ffde22de29e8",
+        "3a2268a60e44",
+        "23fca0f9cb3e",
+        "77a8f3d988ad",
+        "8fe9dfb4a9e2",
+        "c7b6febc8d9e",
+        "ca9d130fb9e0",
+        "14da1e51cc74",
+        "7c08e7c2bfa9"
+      ],
+      "passed": true,
+      "observation_seconds": 2,
+      "fresh_requests": 18,
+      "application_id": "payflow"
+    },
+    "affected_capabilities": [],
+    "error_codes": [
+      "DB_POOL_EXHAUSTED"
+    ],
+    "patch_audit_id": "85887bd4a0b242568bb144af8e809686",
+    "resolved_at": 1789765535.9001338
+  },
+  "repaired_source": "def process(pool, charge, save):\n    connection = pool.acquire()\n    try:\n        result = charge()\n        save(connection, result)\n        return result\n    finally:\n        pool.release(connection)\n",
+  "completed_at": 1789765539.2349398,
+  "browser_failed_support_reference": "79abf2eb173d",
+  "browser_recovered_transaction": "TXN-52482C56"
+}

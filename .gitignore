@@ -1,0 +1,12 @@
+runtime/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+*.log
+coverage/
+.coverage
+.venv/
+venv/
+test-results.json
+node_modules/

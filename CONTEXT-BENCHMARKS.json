@@ -1,0 +1,2439 @@
+{
+  "timestamp": 1789837026.9534829,
+  "scope": "Synthetic fixtures and previously recorded hero evidence; no live LLM",
+  "results": [
+    {
+      "request_id": "00203e210623461da94f07b943dac86f",
+      "purpose": "RCA",
+      "application_id": "payflow",
+      "incident_id": "BENCH-small",
+      "timestamp": 1789837025.0765848,
+      "selected_strategy": "JSON",
+      "original_tokens": 5,
+      "optimized_tokens": 5,
+      "token_reduction": 0.0,
+      "original_bytes": 16,
+      "optimized_bytes": 16,
+      "byte_reduction": 0.0,
+      "encoding_time_ms": 0.037,
+      "profile_time_ms": 0.518,
+      "serialization_time_ms": 142.368,
+      "validation_time_ms": 0.304,
+      "total_optimization_time_ms": 586.059,
+      "available_context_budget": null,
+      "fits_context_budget": null,
+      "budget": {
+        "context_limit": null,
+        "system_tokens": 0,
+        "tool_tokens": 0,
+        "reserved_output_tokens": 4500,
+        "safety_margin": 512,
+        "available_context_budget": null,
+        "selected_context_tokens": 5,
+        "utilization_percentage": null,
+        "fits_context_budget": null,
+        "status": "NOT CONFIGURED"
+      },
+      "strategy_score": 0.0,
+      "strategy_reasons": [
+        "Highest deterministic utility among valid measured candidates",
+        "Alternative savings below threshold or utility does not justify format complexity",
+        "0 uniform records; 0 repeated-key bytes",
+        "Minimum saving policy: 5%"
+      ],
+      "integrity_status": "PASS",
+      "round_trip_status": "PASS",
+      "integrity_details": {
+        "evidence_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "incident_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "application_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "service_names": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "trace_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "span_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "request_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "conversation_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "error_codes": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "commit_shas": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "deployment_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "config_versions": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "dependency_names": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "statuses": {
+          "required": 1,
+          "preserved": 1,
+          "status": "PASS"
+        },
+        "timestamps": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "source_paths": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "source_diffs": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "numeric_metrics": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        }
+      },
+      "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+      "fallback_strategy": "JSON",
+      "fallback_triggered": true,
+      "fallback_reason": "Alternative savings below threshold or utility does not justify format complexity",
+      "candidate_results": [
+        {
+          "strategy": "JSON",
+          "tokens": 5,
+          "bytes": 16,
+          "encoding_time_ms": 0.037,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "incident_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "application_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "service_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "commit_shas": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_paths": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_diffs": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "numeric_metrics": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 0.0,
+          "strategy_score": 0.0,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "TOON",
+          "tokens": 3,
+          "bytes": 13,
+          "encoding_time_ms": 142.295,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "incident_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "application_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "service_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "commit_shas": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_paths": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_diffs": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "numeric_metrics": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 40.0,
+          "strategy_score": -0.75,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "HYBRID",
+          "tokens": 11,
+          "bytes": 26,
+          "encoding_time_ms": 0.035,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "incident_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "application_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "service_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "commit_shas": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_paths": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_diffs": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "numeric_metrics": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": -120.0,
+          "strategy_score": -123.0,
+          "fits_context_budget": null
+        }
+      ],
+      "serializer_version": "JSON/1; @toon-format/toon/4.1.1; HYBRID/1",
+      "tokenizer_name": "tiktoken:o200k_base (local reference; model not mapped)",
+      "profile": {
+        "maximum_nesting_depth": 1,
+        "object_count": 1,
+        "serialized_bytes": 16,
+        "token_count": 5,
+        "repeated_key_overhead_bytes": 0,
+        "structural_repetition": 0.0,
+        "average_text_length": 0.0,
+        "schema_complexity": 2,
+        "scalar_percentage": 50.0,
+        "nested_percentage": 50.0,
+        "evidence_type_distribution": {},
+        "log_records": 0,
+        "metric_records": 0,
+        "trace_records": 0,
+        "health_dependency_records": 0,
+        "source_change_records": 0,
+        "memory_runbook_records": 0
+      },
+      "delivery": "PREPARED \u2014 NOT SENT",
+      "metadata": {},
+      "fixture": "small"
+    },
+    {
+      "request_id": "e85a93974efc4e12bb80dc260f3f5cb8",
+      "purpose": "RCA",
+      "application_id": "payflow",
+      "incident_id": "BENCH-uniform",
+      "timestamp": 1789837025.535667,
+      "selected_strategy": "TOON",
+      "original_tokens": 4102,
+      "optimized_tokens": 2518,
+      "token_reduction": 38.6,
+      "original_bytes": 15001,
+      "optimized_bytes": 6766,
+      "byte_reduction": 54.9,
+      "encoding_time_ms": 142.085,
+      "profile_time_ms": 2.419,
+      "serialization_time_ms": 426.217,
+      "validation_time_ms": 23.972,
+      "total_optimization_time_ms": 458.771,
+      "available_context_budget": null,
+      "fits_context_budget": null,
+      "budget": {
+        "context_limit": null,
+        "system_tokens": 0,
+        "tool_tokens": 0,
+        "reserved_output_tokens": 4500,
+        "safety_margin": 512,
+        "available_context_budget": null,
+        "selected_context_tokens": 2518,
+        "utilization_percentage": null,
+        "fits_context_budget": null,
+        "status": "NOT CONFIGURED"
+      },
+      "strategy_score": 39.615,
+      "strategy_reasons": [
+        "Highest deterministic utility among valid measured candidates",
+        "100 uniform records; 6534 repeated-key bytes",
+        "Minimum saving policy: 5%"
+      ],
+      "integrity_status": "PASS",
+      "round_trip_status": "PASS",
+      "integrity_details": {
+        "evidence_ids": {
+          "required": 100,
+          "preserved": 100,
+          "status": "PASS"
+        },
+        "incident_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "application_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "service_names": {
+          "required": 100,
+          "preserved": 100,
+          "status": "PASS"
+        },
+        "trace_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "span_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "request_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "conversation_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "error_codes": {
+          "required": 100,
+          "preserved": 100,
+          "status": "PASS"
+        },
+        "commit_shas": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "deployment_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "config_versions": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "dependency_names": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "statuses": {
+          "required": 200,
+          "preserved": 200,
+          "status": "PASS"
+        },
+        "timestamps": {
+          "required": 100,
+          "preserved": 100,
+          "status": "PASS"
+        },
+        "source_paths": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "source_diffs": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "numeric_metrics": {
+          "required": 200,
+          "preserved": 200,
+          "status": "PASS"
+        }
+      },
+      "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+      "fallback_strategy": null,
+      "fallback_triggered": false,
+      "fallback_reason": null,
+      "candidate_results": [
+        {
+          "strategy": "JSON",
+          "tokens": 4102,
+          "bytes": 15001,
+          "encoding_time_ms": 0.519,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "application_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "service_names": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 200,
+              "preserved": 200,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_diffs": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "numeric_metrics": {
+              "required": 200,
+              "preserved": 200,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 0.0,
+          "strategy_score": 0.0,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "TOON",
+          "tokens": 2518,
+          "bytes": 6766,
+          "encoding_time_ms": 142.085,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "application_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "service_names": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 200,
+              "preserved": 200,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_diffs": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "numeric_metrics": {
+              "required": 200,
+              "preserved": 200,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 38.6,
+          "strategy_score": 39.615,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "HYBRID",
+          "tokens": 2536,
+          "bytes": 6811,
+          "encoding_time_ms": 283.613,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "application_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "service_names": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 200,
+              "preserved": 200,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "source_diffs": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "numeric_metrics": {
+              "required": 200,
+              "preserved": 200,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 38.2,
+          "strategy_score": 35.176,
+          "fits_context_budget": null
+        }
+      ],
+      "serializer_version": "JSON/1; @toon-format/toon/4.1.1; HYBRID/1",
+      "tokenizer_name": "tiktoken:o200k_base (local reference; model not mapped)",
+      "profile": {
+        "maximum_nesting_depth": 2,
+        "array_count": 1,
+        "uniform_arrays": 1,
+        "uniform_records": 100,
+        "object_count": 100,
+        "serialized_bytes": 15001,
+        "token_count": 4102,
+        "repeated_key_overhead_bytes": 6534,
+        "structural_repetition": 0.99,
+        "average_text_length": 9.0,
+        "schema_complexity": 9,
+        "scalar_percentage": 87.4,
+        "nested_percentage": 12.6,
+        "evidence_type_distribution": {},
+        "log_records": 0,
+        "metric_records": 0,
+        "trace_records": 0,
+        "health_dependency_records": 0,
+        "source_change_records": 0,
+        "memory_runbook_records": 0
+      },
+      "delivery": "PREPARED \u2014 NOT SENT",
+      "metadata": {},
+      "fixture": "uniform"
+    },
+    {
+      "request_id": "fbcdaf6298884030aa7438d759f25ef8",
+      "purpose": "RCA",
+      "application_id": "payflow",
+      "incident_id": "BENCH-mixed",
+      "timestamp": 1789837026.011702,
+      "selected_strategy": "HYBRID",
+      "original_tokens": 4894,
+      "optimized_tokens": 3212,
+      "token_reduction": 34.4,
+      "original_bytes": 18305,
+      "optimized_bytes": 9307,
+      "byte_reduction": 49.2,
+      "encoding_time_ms": 285.216,
+      "profile_time_ms": 2.724,
+      "serialization_time_ms": 431.934,
+      "validation_time_ms": 34.978,
+      "total_optimization_time_ms": 475.759,
+      "available_context_budget": null,
+      "fits_context_budget": null,
+      "budget": {
+        "context_limit": null,
+        "system_tokens": 0,
+        "tool_tokens": 0,
+        "reserved_output_tokens": 4500,
+        "safety_margin": 512,
+        "available_context_budget": null,
+        "selected_context_tokens": 3212,
+        "utilization_percentage": null,
+        "fits_context_budget": null,
+        "status": "NOT CONFIGURED"
+      },
+      "strategy_score": 39.369,
+      "strategy_reasons": [
+        "Highest deterministic utility among valid measured candidates",
+        "120 uniform records; 7382 repeated-key bytes",
+        "Minimum saving policy: 5%"
+      ],
+      "integrity_status": "PASS",
+      "round_trip_status": "PASS",
+      "integrity_details": {
+        "evidence_ids": {
+          "required": 100,
+          "preserved": 100,
+          "status": "PASS"
+        },
+        "incident_ids": {
+          "required": 21,
+          "preserved": 21,
+          "status": "PASS"
+        },
+        "application_ids": {
+          "required": 1,
+          "preserved": 1,
+          "status": "PASS"
+        },
+        "service_names": {
+          "required": 120,
+          "preserved": 120,
+          "status": "PASS"
+        },
+        "trace_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "span_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "request_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "conversation_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "error_codes": {
+          "required": 100,
+          "preserved": 100,
+          "status": "PASS"
+        },
+        "commit_shas": {
+          "required": 1,
+          "preserved": 1,
+          "status": "PASS"
+        },
+        "deployment_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "config_versions": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "dependency_names": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "statuses": {
+          "required": 221,
+          "preserved": 221,
+          "status": "PASS"
+        },
+        "timestamps": {
+          "required": 100,
+          "preserved": 100,
+          "status": "PASS"
+        },
+        "source_paths": {
+          "required": 1,
+          "preserved": 1,
+          "status": "PASS"
+        },
+        "source_diffs": {
+          "required": 1,
+          "preserved": 1,
+          "status": "PASS"
+        },
+        "numeric_metrics": {
+          "required": 220,
+          "preserved": 220,
+          "status": "PASS"
+        }
+      },
+      "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+      "fallback_strategy": null,
+      "fallback_triggered": false,
+      "fallback_reason": null,
+      "candidate_results": [
+        {
+          "strategy": "JSON",
+          "tokens": 4894,
+          "bytes": 18305,
+          "encoding_time_ms": 0.639,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 21,
+              "preserved": 21,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 120,
+              "preserved": 120,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 221,
+              "preserved": 221,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 220,
+              "preserved": 220,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 0.0,
+          "strategy_score": 0.0,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "TOON",
+          "tokens": 3303,
+          "bytes": 9382,
+          "encoding_time_ms": 146.079,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 21,
+              "preserved": 21,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 120,
+              "preserved": 120,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 221,
+              "preserved": 221,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 220,
+              "preserved": 220,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 32.5,
+          "strategy_score": 33.509,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "HYBRID",
+          "tokens": 3212,
+          "bytes": 9307,
+          "encoding_time_ms": 285.216,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 21,
+              "preserved": 21,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 120,
+              "preserved": 120,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 221,
+              "preserved": 221,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 100,
+              "preserved": 100,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 220,
+              "preserved": 220,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 34.4,
+          "strategy_score": 39.369,
+          "fits_context_budget": null
+        }
+      ],
+      "serializer_version": "JSON/1; @toon-format/toon/4.1.1; HYBRID/1",
+      "tokenizer_name": "tiktoken:o200k_base (local reference; model not mapped)",
+      "profile": {
+        "maximum_nesting_depth": 5,
+        "object_count": 164,
+        "array_count": 23,
+        "uniform_arrays": 2,
+        "uniform_records": 120,
+        "git_diff_count": 1,
+        "serialized_bytes": 18305,
+        "token_count": 4894,
+        "repeated_key_overhead_bytes": 7382,
+        "structural_repetition": 0.9496,
+        "average_text_length": 9.73,
+        "schema_complexity": 48,
+        "scalar_percentage": 82.3,
+        "nested_percentage": 17.7,
+        "evidence_type_distribution": {},
+        "log_records": 0,
+        "metric_records": 0,
+        "trace_records": 0,
+        "health_dependency_records": 0,
+        "source_change_records": 0,
+        "memory_runbook_records": 0
+      },
+      "delivery": "PREPARED \u2014 NOT SENT",
+      "metadata": {},
+      "fixture": "mixed"
+    },
+    {
+      "request_id": "1b49c2d77f7e4155949ca690349fa55c",
+      "purpose": "RCA",
+      "application_id": "payflow",
+      "incident_id": "BENCH-payflow_hero",
+      "timestamp": 1789837026.4488251,
+      "selected_strategy": "JSON",
+      "original_tokens": 2534,
+      "optimized_tokens": 2534,
+      "token_reduction": 0.0,
+      "original_bytes": 8433,
+      "optimized_bytes": 8433,
+      "byte_reduction": 0.0,
+      "encoding_time_ms": 0.372,
+      "profile_time_ms": 1.658,
+      "serialization_time_ms": 422.599,
+      "validation_time_ms": 8.403,
+      "total_optimization_time_ms": 436.721,
+      "available_context_budget": null,
+      "fits_context_budget": null,
+      "budget": {
+        "context_limit": null,
+        "system_tokens": 0,
+        "tool_tokens": 0,
+        "reserved_output_tokens": 4500,
+        "safety_margin": 512,
+        "available_context_budget": null,
+        "selected_context_tokens": 2534,
+        "utilization_percentage": null,
+        "fits_context_budget": null,
+        "status": "NOT CONFIGURED"
+      },
+      "strategy_score": 0.0,
+      "strategy_reasons": [
+        "Highest deterministic utility among valid measured candidates",
+        "Alternative savings below threshold or utility does not justify format complexity",
+        "11 uniform records; 1450 repeated-key bytes",
+        "Minimum saving policy: 5%"
+      ],
+      "integrity_status": "PASS",
+      "round_trip_status": "PASS",
+      "integrity_details": {
+        "evidence_ids": {
+          "required": 10,
+          "preserved": 10,
+          "status": "PASS"
+        },
+        "incident_ids": {
+          "required": 14,
+          "preserved": 14,
+          "status": "PASS"
+        },
+        "application_ids": {
+          "required": 11,
+          "preserved": 11,
+          "status": "PASS"
+        },
+        "service_names": {
+          "required": 24,
+          "preserved": 24,
+          "status": "PASS"
+        },
+        "trace_ids": {
+          "required": 6,
+          "preserved": 6,
+          "status": "PASS"
+        },
+        "span_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "request_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "conversation_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "error_codes": {
+          "required": 6,
+          "preserved": 6,
+          "status": "PASS"
+        },
+        "commit_shas": {
+          "required": 5,
+          "preserved": 5,
+          "status": "PASS"
+        },
+        "deployment_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "config_versions": {
+          "required": 1,
+          "preserved": 1,
+          "status": "PASS"
+        },
+        "dependency_names": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "statuses": {
+          "required": 20,
+          "preserved": 20,
+          "status": "PASS"
+        },
+        "timestamps": {
+          "required": 17,
+          "preserved": 17,
+          "status": "PASS"
+        },
+        "source_paths": {
+          "required": 6,
+          "preserved": 6,
+          "status": "PASS"
+        },
+        "source_diffs": {
+          "required": 2,
+          "preserved": 2,
+          "status": "PASS"
+        },
+        "numeric_metrics": {
+          "required": 48,
+          "preserved": 48,
+          "status": "PASS"
+        }
+      },
+      "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+      "fallback_strategy": "JSON",
+      "fallback_triggered": true,
+      "fallback_reason": "Alternative savings below threshold or utility does not justify format complexity",
+      "candidate_results": [
+        {
+          "strategy": "JSON",
+          "tokens": 2534,
+          "bytes": 8433,
+          "encoding_time_ms": 0.372,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 10,
+              "preserved": 10,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 14,
+              "preserved": 14,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 11,
+              "preserved": 11,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 24,
+              "preserved": 24,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 5,
+              "preserved": 5,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 20,
+              "preserved": 20,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 17,
+              "preserved": 17,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 48,
+              "preserved": 48,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 0.0,
+          "strategy_score": 0.0,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "TOON",
+          "tokens": 2731,
+          "bytes": 9033,
+          "encoding_time_ms": 153.81,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 10,
+              "preserved": 10,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 14,
+              "preserved": 14,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 11,
+              "preserved": 11,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 24,
+              "preserved": 24,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 5,
+              "preserved": 5,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 20,
+              "preserved": 20,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 17,
+              "preserved": 17,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 48,
+              "preserved": 48,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": -7.8,
+          "strategy_score": -23.625,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "HYBRID",
+          "tokens": 2564,
+          "bytes": 8415,
+          "encoding_time_ms": 268.418,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 10,
+              "preserved": 10,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 14,
+              "preserved": 14,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 11,
+              "preserved": 11,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 24,
+              "preserved": 24,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "conversation_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "error_codes": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 5,
+              "preserved": 5,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 1,
+              "preserved": 1,
+              "status": "PASS"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 20,
+              "preserved": 20,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 17,
+              "preserved": 17,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 6,
+              "preserved": 6,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 48,
+              "preserved": 48,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": -1.2,
+          "strategy_score": 1.25,
+          "fits_context_budget": null
+        }
+      ],
+      "serializer_version": "JSON/1; @toon-format/toon/4.1.1; HYBRID/1",
+      "tokenizer_name": "tiktoken:o200k_base (local reference; model not mapped)",
+      "profile": {
+        "maximum_nesting_depth": 9,
+        "object_count": 50,
+        "array_count": 13,
+        "evidence_objects": 10,
+        "records_count": 4,
+        "spans_count": 8,
+        "uniform_arrays": 3,
+        "uniform_records": 11,
+        "git_diff_count": 3,
+        "matches_count": 3,
+        "serialized_bytes": 8433,
+        "token_count": 2534,
+        "repeated_key_overhead_bytes": 1450,
+        "structural_repetition": 0.6726,
+        "average_text_length": 33.74,
+        "schema_complexity": 83,
+        "scalar_percentage": 76.1,
+        "nested_percentage": 23.9,
+        "evidence_type_distribution": {
+          "METRIC": 1,
+          "LOG": 1,
+          "TRACE": 1,
+          "GIT": 1,
+          "DEPLOYMENT": 1,
+          "DEPENDENCY": 1,
+          "DATABASE": 1,
+          "CONFIG": 1,
+          "RUNBOOK": 1,
+          "HISTORY": 1
+        },
+        "log_records": 4,
+        "metric_records": 1,
+        "trace_records": 9,
+        "health_dependency_records": 2,
+        "source_change_records": 3,
+        "memory_runbook_records": 4
+      },
+      "delivery": "PREPARED \u2014 NOT SENT",
+      "metadata": {},
+      "fixture": "payflow_hero"
+    },
+    {
+      "request_id": "c4afc3597dbf4533aa92c13648dc97ff",
+      "purpose": "RCA",
+      "application_id": "converselab",
+      "incident_id": "BENCH-converselab_hero",
+      "timestamp": 1789837026.9532783,
+      "selected_strategy": "JSON",
+      "original_tokens": 11857,
+      "optimized_tokens": 11857,
+      "token_reduction": 0.0,
+      "original_bytes": 40633,
+      "optimized_bytes": 40633,
+      "byte_reduction": 0.0,
+      "encoding_time_ms": 2.083,
+      "profile_time_ms": 11.013,
+      "serialization_time_ms": 431.588,
+      "validation_time_ms": 48.646,
+      "total_optimization_time_ms": 504.166,
+      "available_context_budget": null,
+      "fits_context_budget": null,
+      "budget": {
+        "context_limit": null,
+        "system_tokens": 0,
+        "tool_tokens": 0,
+        "reserved_output_tokens": 4500,
+        "safety_margin": 512,
+        "available_context_budget": null,
+        "selected_context_tokens": 11857,
+        "utilization_percentage": null,
+        "fits_context_budget": null,
+        "status": "NOT CONFIGURED"
+      },
+      "strategy_score": 0.0,
+      "strategy_reasons": [
+        "Candidate/measurement failure: safe JSON fallback",
+        "83 uniform records; 15854 repeated-key bytes",
+        "Minimum saving policy: 5%"
+      ],
+      "integrity_status": "PASS",
+      "round_trip_status": "PASS",
+      "integrity_details": {
+        "evidence_ids": {
+          "required": 10,
+          "preserved": 10,
+          "status": "PASS"
+        },
+        "incident_ids": {
+          "required": 13,
+          "preserved": 13,
+          "status": "PASS"
+        },
+        "application_ids": {
+          "required": 102,
+          "preserved": 102,
+          "status": "PASS"
+        },
+        "service_names": {
+          "required": 149,
+          "preserved": 149,
+          "status": "PASS"
+        },
+        "trace_ids": {
+          "required": 136,
+          "preserved": 136,
+          "status": "PASS"
+        },
+        "span_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "request_ids": {
+          "required": 88,
+          "preserved": 88,
+          "status": "PASS"
+        },
+        "conversation_ids": {
+          "required": 88,
+          "preserved": 88,
+          "status": "PASS"
+        },
+        "error_codes": {
+          "required": 96,
+          "preserved": 96,
+          "status": "PASS"
+        },
+        "commit_shas": {
+          "required": 11,
+          "preserved": 11,
+          "status": "PASS"
+        },
+        "deployment_ids": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "config_versions": {
+          "required": 2,
+          "preserved": 2,
+          "status": "PASS"
+        },
+        "dependency_names": {
+          "required": 0,
+          "preserved": 0,
+          "status": "N/A"
+        },
+        "statuses": {
+          "required": 150,
+          "preserved": 150,
+          "status": "PASS"
+        },
+        "timestamps": {
+          "required": 99,
+          "preserved": 99,
+          "status": "PASS"
+        },
+        "source_paths": {
+          "required": 2,
+          "preserved": 2,
+          "status": "PASS"
+        },
+        "source_diffs": {
+          "required": 2,
+          "preserved": 2,
+          "status": "PASS"
+        },
+        "numeric_metrics": {
+          "required": 415,
+          "preserved": 415,
+          "status": "PASS"
+        }
+      },
+      "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+      "fallback_strategy": "JSON",
+      "fallback_triggered": true,
+      "fallback_reason": "TOON integrity/round-trip rejected",
+      "candidate_results": [
+        {
+          "strategy": "JSON",
+          "tokens": 11857,
+          "bytes": 40633,
+          "encoding_time_ms": 2.083,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 10,
+              "preserved": 10,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 13,
+              "preserved": 13,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 102,
+              "preserved": 102,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 149,
+              "preserved": 149,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 136,
+              "preserved": 136,
+              "status": "PASS"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 88,
+              "preserved": 88,
+              "status": "PASS"
+            },
+            "conversation_ids": {
+              "required": 88,
+              "preserved": 88,
+              "status": "PASS"
+            },
+            "error_codes": {
+              "required": 96,
+              "preserved": 96,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 11,
+              "preserved": 11,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 150,
+              "preserved": 150,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 99,
+              "preserved": 99,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 415,
+              "preserved": 415,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 0.0,
+          "strategy_score": 0.0,
+          "fits_context_budget": null
+        },
+        {
+          "strategy": "TOON",
+          "tokens": 9985,
+          "bytes": 32286,
+          "encoding_time_ms": 165.726,
+          "integrity_status": "FAIL",
+          "round_trip_status": "FAIL",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 10,
+              "preserved": 10,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 13,
+              "preserved": 13,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 102,
+              "preserved": 102,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 149,
+              "preserved": 149,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 136,
+              "preserved": 136,
+              "status": "PASS"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 88,
+              "preserved": 88,
+              "status": "PASS"
+            },
+            "conversation_ids": {
+              "required": 88,
+              "preserved": 88,
+              "status": "PASS"
+            },
+            "error_codes": {
+              "required": 96,
+              "preserved": 96,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 11,
+              "preserved": 11,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 150,
+              "preserved": 150,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 99,
+              "preserved": 99,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 415,
+              "preserved": 412,
+              "status": "FAIL"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": false
+        },
+        {
+          "strategy": "HYBRID",
+          "tokens": 9575,
+          "bytes": 28671,
+          "encoding_time_ms": 263.779,
+          "integrity_status": "PASS",
+          "round_trip_status": "PASS",
+          "integrity_details": {
+            "evidence_ids": {
+              "required": 10,
+              "preserved": 10,
+              "status": "PASS"
+            },
+            "incident_ids": {
+              "required": 13,
+              "preserved": 13,
+              "status": "PASS"
+            },
+            "application_ids": {
+              "required": 102,
+              "preserved": 102,
+              "status": "PASS"
+            },
+            "service_names": {
+              "required": 149,
+              "preserved": 149,
+              "status": "PASS"
+            },
+            "trace_ids": {
+              "required": 136,
+              "preserved": 136,
+              "status": "PASS"
+            },
+            "span_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "request_ids": {
+              "required": 88,
+              "preserved": 88,
+              "status": "PASS"
+            },
+            "conversation_ids": {
+              "required": 88,
+              "preserved": 88,
+              "status": "PASS"
+            },
+            "error_codes": {
+              "required": 96,
+              "preserved": 96,
+              "status": "PASS"
+            },
+            "commit_shas": {
+              "required": 11,
+              "preserved": 11,
+              "status": "PASS"
+            },
+            "deployment_ids": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "config_versions": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "dependency_names": {
+              "required": 0,
+              "preserved": 0,
+              "status": "N/A"
+            },
+            "statuses": {
+              "required": 150,
+              "preserved": 150,
+              "status": "PASS"
+            },
+            "timestamps": {
+              "required": 99,
+              "preserved": 99,
+              "status": "PASS"
+            },
+            "source_paths": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "source_diffs": {
+              "required": 2,
+              "preserved": 2,
+              "status": "PASS"
+            },
+            "numeric_metrics": {
+              "required": 415,
+              "preserved": 415,
+              "status": "PASS"
+            }
+          },
+          "integrity_method": "Canonical full structure/value/order comparison plus path-aware anchors; no semantic-quality claim",
+          "valid": true,
+          "token_reduction": 19.2,
+          "strategy_score": 16.246,
+          "fits_context_budget": null
+        }
+      ],
+      "serializer_version": "JSON/1; @toon-format/toon/4.1.1; HYBRID/1",
+      "tokenizer_name": "tiktoken:o200k_base (local reference; model not mapped)",
+      "profile": {
+        "maximum_nesting_depth": 8,
+        "object_count": 196,
+        "array_count": 24,
+        "evidence_objects": 10,
+        "records_count": 80,
+        "uniform_arrays": 2,
+        "uniform_records": 83,
+        "spans_count": 48,
+        "matches_count": 3,
+        "serialized_bytes": 40633,
+        "token_count": 11857,
+        "repeated_key_overhead_bytes": 15854,
+        "structural_repetition": 0.947,
+        "average_text_length": 15.47,
+        "schema_complexity": 90,
+        "scalar_percentage": 87.1,
+        "nested_percentage": 12.9,
+        "evidence_type_distribution": {
+          "METRIC": 1,
+          "LOG": 1,
+          "TRACE": 1,
+          "GIT": 1,
+          "DEPLOYMENT": 1,
+          "DEPENDENCY": 1,
+          "HEALTH": 1,
+          "CONFIG": 1,
+          "RUNBOOK": 1,
+          "HISTORY": 1
+        },
+        "log_records": 80,
+        "metric_records": 1,
+        "trace_records": 49,
+        "health_dependency_records": 1,
+        "source_change_records": 3,
+        "memory_runbook_records": 4
+      },
+      "delivery": "PREPARED \u2014 NOT SENT",
+      "metadata": {},
+      "fixture": "converselab_hero"
+    }
+  ]
+}
